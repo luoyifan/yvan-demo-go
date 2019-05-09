@@ -98,7 +98,6 @@ func (self *DbClient) Query(query string, args ...interface{}) (*DbReader, error
 		}
 		list = append(list, data)
 	}
-
 	//log.Infof("rows:%d, columns:%d, cost:%s", len(list), length, cost)
 
 	return &DbReader{
