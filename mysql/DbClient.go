@@ -5,7 +5,6 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/pingcap/errors"
-	"github.com/siddontang/go-log/log"
 	"github.com/siddontang/go/hack"
 	"strconv"
 	"time"
@@ -54,7 +53,7 @@ func (self *DbClient) Execute(query string, args ...interface{}) (sql.Result, er
 
 func (self *DbClient) Query(query string, args ...interface{}) (*DbReader, error) {
 
-	log.Infof("query:%s, params:%v", query, args)
+	//log.Infof("query:%s, params:%v", query, args)
 
 	t1 := time.Now()
 	stmt, err := self.db.Prepare(query)
@@ -100,7 +99,7 @@ func (self *DbClient) Query(query string, args ...interface{}) (*DbReader, error
 		list = append(list, data)
 	}
 
-	log.Infof("rows:%d, columns:%d, cost:%s", len(list), length, cost)
+	//log.Infof("rows:%d, columns:%d, cost:%s", len(list), length, cost)
 
 	return &DbReader{
 		Columns:     columns,

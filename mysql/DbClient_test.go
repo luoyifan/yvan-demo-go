@@ -20,7 +20,6 @@ func TestOpenMySql(t *testing.T) {
 }
 
 func Benchmark_DbClient_Query(b *testing.B) {
-	log.Infof("benchmark.query n=%d", b.N)
 	for i := 0; i < b.N; i++ { //use b.N for looping
 		dbClient.Query(`SELECT
 activity_id, 
